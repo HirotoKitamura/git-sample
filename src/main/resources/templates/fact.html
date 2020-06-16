@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/xxx.css">
+</head>
+<body>
+<h1 th:if="${num>=0}" th:text="${num}+の階乗は+${result}+です"></h1>
+<h1 th:unless="${num>=0}" th:text="入力が不正です" style="color: red"></h1>
+</body>
+</html>
