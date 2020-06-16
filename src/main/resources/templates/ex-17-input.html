@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/xxx.css">
+</head>
+<body>
+<form th:action="@{/ex17/result}" th:object="${ex17QuestionnaireForm}" method="post">
+<h1>アンケートフォーム</h1>
+名前:<br>
+<div th:errors="*{name}" style="color: red"></div>
+<input type="text" name="name" th:field="*{name}"><br>
+メール:<br>
+<div th:errors="*{email}" style="color: red"></div>
+<input type="text" name="email" th:field="*{email}"><br>
+性別:<br>
+<div th:errors="*{gender}" style="color: red"></div>
+<input type="radio" name="gender" th:each="gender:${genderList}" th:value="${gender}" th:text="${gender.name}" th:field="*{gender}"><br>
+趣味:<br>
+<input type="checkbox" name="hobbyList" th:each="hobby:${hobbyList}" th:value="${hobby}" th:text="${hobby.name}"  th:field="*{hobbyList}"><br>
+好きな言語:<br>
+<select name="lang">
+<option th:each="lang:${langList}" th:value="${lang}" th:text="${lang.name}" th:field="*{lang}">
+</option>
+</select><br>
+その他:<br>
+<div th:errors="*{comment}" style="color: red"></div>
+<textarea name="comment" rows="4" cols="30" th:field="*{comment}"></textarea><br>
+<button>送信</button>
+</form>
+</body>
+</html>
