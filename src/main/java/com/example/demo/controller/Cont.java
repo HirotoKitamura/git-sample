@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Cont {
 	@RequestMapping("")
 	public String index() {
-		return "おはようさん";
+		return "result";
 	}
 }
